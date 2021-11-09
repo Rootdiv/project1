@@ -1,11 +1,11 @@
 <?php
   require_once $_SERVER['DOCUMENT_ROOT'].'/project/project1/global_pass.php';
-  require_once PROJECT_ROOT.'/components/header.inc';
+  require_once PROJECT_ROOT.'/components/header.inc.php';
 ?>
       <header>
         <div class="slider-container">
           <?php echo PHP_EOL;
-            require_once PROJECT_ROOT.'/components/top_nav.inc';
+            require_once PROJECT_ROOT.'/components/top_nav.inc.php';
           echo PHP_EOL ?>
           <div class="slider banner flex-box horizontal-nav horizontal-arrows">
             <ul class="slides" style="margin: 0">
@@ -145,5 +145,5 @@
         </div>
       </main>
 <?php
-  require_once PROJECT_ROOT.'/components/footer.inc';
+  require_once PROJECT_ROOT.'/components/footer.inc.php';
 ?>

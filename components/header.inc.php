@@ -14,7 +14,7 @@ if(basename($_SERVER['REQUEST_URI']) == 'trips.php'){
     <title>Проект 1. <?=$title?></title>
     <link rel="shortcut icon" href="<?=PROJECT_URL?>/img/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="<?=PROJECT_URL?>/css/styles.css">
-    <script src="<?=PROJECT_URL?>/js/jquery-3.5.1.min.js"></script>
+    <script src="<?=PROJECT_URL?>/js/jquery-3.6.0.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=0d3fc543-baea-422c-aeeb-fb38008f8e8f" type="text/javascript"></script>
   </head>
   <body>
