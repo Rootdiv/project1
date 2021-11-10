@@ -1,12 +1,12 @@
 <?php
-  require_once $_SERVER['DOCUMENT_ROOT'].'/project/project1/global_pass.php';
-  require_once PROJECT_ROOT.'/components/header.inc.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/project/project1/global_pass.php';
+  require_once PROJECT_ROOT . '/components/header.inc.php';
 ?>
       <header>
         <div class="trips bg-fix">
           <?php echo PHP_EOL;
-          require_once PROJECT_ROOT.'/components/top_nav.inc.php';
-          echo PHP_EOL ?>
+          require_once PROJECT_ROOT . '/components/top_nav.inc.php';
+          echo PHP_EOL; ?>
           <div class="banner">
             <div class="title">
               <p>MyMoscow</p>
@@ -22,22 +22,22 @@
         </div>
         <br><br>
         <?php $result = mysqli_query($link, 'SELECT * FROM trips');
-        while($pro = mysqli_fetch_assoc($result)){
-          ?>
-          <div class="trips-line">
-          <div class="trips-img bg-fix half left-half" style="background-image: url('<?=PROJECT_URL.$pro['photo']?>');">
+        while ($pro = mysqli_fetch_assoc($result)) {
+          echo PHP_EOL;?>
+        <div class="trips-line">
+          <div class="trips-img bg-fix half left-half" style="background-image: url('<?=PROJECT_URL . $pro['photo'];?>');">
 
           </div>
           <div class="trips-line-message half">
-            <?=$pro['description'];
-            echo PHP_EOL?>
-            <a href='<?=$pro['link']?>' class="button trips-line-button box"><?=$pro['text']?></a>
+            <?php echo $pro['description'];
+            echo PHP_EOL; ?>
+            <a href='<?=$pro['link'];?>' class="button trips-line-button box"><?=$pro['text'];?></a>
           </div>
-          </div>
+        </div>
         <?php }
-        echo PHP_EOL ?>
+        echo PHP_EOL;?>
       </main>
       <div class="space"></div>
 <?php
-  require_once PROJECT_ROOT.'/components/footer.inc.php';
+  require_once PROJECT_ROOT . '/components/footer.inc.php';
 ?>

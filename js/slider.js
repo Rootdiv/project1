@@ -10,7 +10,9 @@ $(document).ready(function() {
       slidesAmount = $(slider).attr('data-slides');
     }
     const sliderWidth = $(slider).closest('div').width() / slidesAmount;
-    $(slider).find('.slides > li').css('width', sliderWidth + 'px');
+    $(slider)
+      .find('.slides > li')
+      .css('width', sliderWidth + 'px');
     //добавляем элементы управления горизонтальные
     if ($(slider).hasClass('horizontal-arrows')) {
       $(slider).prepend('<div class="slider-nav slider-prev bg-fix" data-scroll="-1"></div>');
@@ -39,7 +41,9 @@ $(window).resize(function() {
   for (let i = 0; i < sliders.length; i++) {
     const slider = sliders[i];
     const sliderWidth = $(slider).closest('div').width();
-    $(slider).find('.slides > li').css('width', sliderWidth + 'px');
+    $(slider)
+      .find('.slides > li')
+      .css('width', sliderWidth + 'px');
   }
 });
 
@@ -72,20 +76,30 @@ $('body').on('click', '.control-nav-element', function() {
       //Делаем слайды внутри текущего слайдера вряд
       $(slider).find('.slides').css('display', 'flex');
       //Крутим на величину  (ширина на номер точки/слайда минус 1)
-      $(slider).find('.slides').animate({
-        scrollLeft: deltaOffset * (num)
-      }, slideSpeed);
+      $(slider)
+        .find('.slides')
+        .animate({
+            scrollLeft: deltaOffset * num,
+          },
+          slideSpeed,
+        );
     } else {
       //Получаем высоту слайдера
       let deltaOffset = parseInt($(slider).css('height'));
       //Придаем всем слайдам высоту слайдера
-      $(slider).find('.slides').css('height', deltaOffset + 'px');
+      $(slider)
+        .find('.slides')
+        .css('height', deltaOffset + 'px');
       //Отображаем слайды один под другим
       $(slider).find('.slides').css('display', 'block');
       //Крутим на величину  (ширина на номер точки/слайда минус 1)
-      $(slider).find('.slides').animate({
-        scrollTop: deltaOffset * (num)
-      }, slideSpeed);
+      $(slider)
+        .find('.slides')
+        .animate({
+            scrollTop: deltaOffset * num,
+          },
+          slideSpeed,
+        );
     }
     //снова разрешаем прокрутку
     setTimeout(function() {
@@ -115,18 +129,26 @@ $('body').on('click', '.slider-nav', function() {
     if (Math.ceil(currOffset + deltaOffset) <= 0) {
       //если достигли начала ленты то дальше не едем влево
       $(slider).find('.slides').animate({
-        scrollLeft: 0
-      }, slideSpeed);
+          scrollLeft: 0,
+        },
+        slideSpeed,
+      );
     } else if (currOffset + deltaOffset >= slidesCount * Math.abs(deltaOffset)) {
       //если достигли конца ленты -листаем в начало
       $(slider).find('.slides').animate({
-        scrollLeft: 0
-      }, slideSpeed);
+          scrollLeft: 0,
+        },
+        slideSpeed,
+      );
     } else {
       //иначе крутим либо вперед либо назад
-      $(slider).find('.slides').animate({
-        scrollLeft: currOffset + deltaOffset
-      }, slideSpeed);
+      $(slider)
+        .find('.slides')
+        .animate({
+            scrollLeft: currOffset + deltaOffset,
+          },
+          slideSpeed,
+        );
     }
     setTimeout(function() {
       canScroll = 1;
@@ -144,10 +166,16 @@ $('body').on('click', '.slider-nav', function() {
     for (let i = 0; i < allDots.length; i++) {
       if (nextSlideNum <= 0) {
         //если достигли начала делаем первые точки активными и все
-        $(slider).find('.control-nav-container').find('.control-nav-element:first-child').addClass('control-nav-element-active');
+        $(slider)
+          .find('.control-nav-container')
+          .find('.control-nav-element:first-child')
+          .addClass('control-nav-element-active');
       } else if (nextSlideNum >= slidesCount) {
         //если достигли конца ленты делаем первые точки активными и все
-        $(slider).find('.control-nav-container').find('.control-nav-element:first-child').addClass('control-nav-element-active');
+        $(slider)
+          .find('.control-nav-container')
+          .find('.control-nav-element:first-child')
+          .addClass('control-nav-element-active');
       } else {
         //если атрибут точки равен номеру слайда то делаем ее активной
         if ($(allDots[i]).index() === nextSlideNum) {
